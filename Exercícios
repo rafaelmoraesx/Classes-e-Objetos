@@ -1,0 +1,396 @@
+1.
+public class Pessoa {
+   
+    String nome;
+    int idade;
+    String profissao;
+
+    
+    public void exibirDetalhes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Profissão: " + profissao);
+    }
+
+    public static void main(String[] args) {
+        
+        Pessoa pessoa = new Pessoa();
+        pessoa.nome = "Rafael Moraes";
+        pessoa.idade = 17;
+        pessoa.profissao = "Técnico Informática";
+
+        
+        pessoa.exibirDetalhes();
+    }
+}
+
+2.
+public class ContaBancaria {
+    
+    String titular;
+    double saldo;
+    int numeroConta;
+
+    
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+        }
+    }
+
+    
+    public void sacar(double valor) {
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+        }
+    }
+
+    public static void main(String[] args) {
+        
+        ContaBancaria conta = new ContaBancaria();
+        conta.titular = "Rafael Moraes";
+        conta.saldo = 1250.00;
+        conta.numeroConta = 190607;
+
+        
+        conta.depositar(750.00);
+        conta.sacar(500.00);
+
+        
+        System.out.println("Nome titular: " + conta.titular);
+        System.out.println("Número conta: " + conta.numeroConta);
+        System.out.println("Saldo final: " + conta.saldo);   
+    }
+    
+}
+
+3.
+public class Carro {
+    
+    String marca;
+    String modelo;
+    int ano;
+    double velocidade;
+
+    
+    public void acelerar(double incremento) {
+        if (incremento > 0) {
+            velocidade += incremento;
+        }
+    }
+
+    
+    public void desacelerar(double decremento) {
+        if (decremento > 0 && decremento <= velocidade) {
+            velocidade -= decremento;
+        }
+    }
+
+    public static void main(String[] args) {
+        
+        Carro carro = new Carro();
+        carro.marca = "Wolksvagem";
+        carro.modelo = "Nivus";
+        carro.ano = 2022;
+        carro.velocidade = 0.0;
+
+        
+        carro.acelerar(120.0);
+        carro.desacelerar(30.0);
+
+        
+        System.out.println("Marca do Carro: " + carro.marca);
+        System.out.println("Modelo do Carro: " + carro.modelo);
+        System.out.println("Velocidade atual: " + carro.velocidade + " km/h");
+    }
+}
+
+4.
+public class Livro {
+   
+    private String titulo;
+    private String autor;
+    private int numeroDePaginas;
+    private int numeroDeExemplaresDisponiveis;
+
+  
+    public Livro(String titulo, String autor, int numeroDePaginas, int numeroDeExemplaresDisponiveis) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.numeroDePaginas = numeroDePaginas;
+        this.numeroDeExemplaresDisponiveis = numeroDeExemplaresDisponiveis;
+    }
+
+       public boolean emprestar() {
+        if (numeroDeExemplaresDisponiveis > 0) {
+            numeroDeExemplaresDisponiveis--;
+            return true;
+        } else {
+            System.out.println("Não há exemplares disponíveis para emprestar.");
+            return false;
+        }
+    }
+
+  
+    public void devolver() {
+        numeroDeExemplaresDisponiveis++;
+    }
+
+  
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getNumeroDePaginas() {
+        return numeroDePaginas;
+    }
+
+    public void setNumeroDePaginas(int numeroDePaginas) {
+        this.numeroDePaginas = numeroDePaginas;
+    }
+
+    public int getNumeroDeExemplaresDisponiveis() {
+        return numeroDeExemplaresDisponiveis;
+    }
+
+    public void setNumeroDeExemplaresDisponiveis(int numeroDeExemplaresDisponiveis) {
+        this.numeroDeExemplaresDisponiveis = numeroDeExemplaresDisponiveis;
+    }
+
+  
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", numeroDePaginas=" + numeroDePaginas +
+                ", numeroDeExemplaresDisponiveis=" + numeroDeExemplaresDisponiveis +
+                '}';
+    }
+}
+
+CLASSE TESTE
+public class TesteLivro {
+    public static void main(String[] args) {
+        Livro livro1 = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", 1200, 3);
+
+        System.out.println(livro1);
+
+        
+        if (livro1.emprestar()) {
+            System.out.println("Livro emprestado com sucesso.");
+        }
+
+     
+
+       
+        livro1.devolver();
+        System.out.println("Livro devolvido.");
+        System.out.println(livro1); 
+    }
+}
+
+5.
+public class Retangulo {
+   
+    private double largura;
+    private double altura;
+
+    
+    public Retangulo(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
+
+   
+    public double calcularArea() {
+        return largura * altura;
+    }
+
+    
+    public double calcularPerimetro() {
+        return 2 * (largura + altura);
+    }
+
+  
+    public double getLargura() {
+        return largura;
+    }
+
+    public void setLargura(double largura) {
+        this.largura = largura;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+   
+    @Override
+    public String toString() {
+        return "Retângulo{" +
+                "largura=" + largura +
+                ", altura=" + altura +
+                ", área=" + calcularArea() +
+                ", perímetro=" + calcularPerimetro() +
+                '}';
+    }
+}
+
+CLASSE TESTE 
+public class TestarRetangulo {
+    public static void main(String[] args) {
+       
+        Retangulo retangulo = new Retangulo(5.0, 3.0);
+
+       
+        double area = retangulo.calcularArea();
+        double perimetro = retangulo.calcularPerimetro();
+
+       
+        System.out.println("Largura: " + retangulo.getLargura());
+        System.out.println("Altura: " + retangulo.getAltura());
+        System.out.println("Área: " + area);
+        System.out.println("Perímetro: " + perimetro);
+    }
+}
+
+6.
+public class Contador {
+    
+    private int valor;
+
+    
+    public Contador(int valorInicial) {
+        this.valor = valorInicial;
+    }
+
+    
+    public Contador() {
+        this(0);
+    }
+
+    
+    public void incrementar() {
+        valor++;
+    }
+
+    
+    public void decrementar() {
+        valor--;
+    }
+
+    
+    public int getValor() {
+        return valor;
+    }
+
+    
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+}
+
+CLASSE TESTE
+public class TestarContador {
+    public static void main(String[] args) {
+   
+        Contador contador = new Contador(10);
+
+        
+        System.out.println("Valor inicial: " + contador.getValor());
+
+        
+        contador.incrementar();
+        contador.incrementar();
+        System.out.println("Valor após incrementos: " + contador.getValor());
+
+        
+        contador.decrementar();
+        System.out.println("Valor após decremento: " + contador.getValor());
+        
+        
+        contador.setValor(25);
+        System.out.println("Valor após contagem: " + contador.getValor());
+    }
+}
+
+7.
+import java.util.ArrayList;
+import java.util.List;
+
+public class Estudante {
+   
+    private String nome;
+    private int idade;
+    private List<String> disciplinasMatriculadas;
+
+    
+    public Estudante(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+        this.disciplinasMatriculadas = new ArrayList<>();
+    }
+
+    
+    public void adicionarDisciplina(String disciplina) {
+        disciplinasMatriculadas.add(disciplina);
+    }
+
+    
+    public void exibirDisciplinas() {
+        System.out.println("Disciplinas matriculadas de " + nome + ":");
+        for (String disciplina : disciplinasMatriculadas) {
+            System.out.println("- " + disciplina);
+        }
+    }
+
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+}
+
+CLASSE TESTE
+public class TestarEstudante {
+    public static void main(String[] args) {
+        
+        Estudante estudante = new Estudante("Rafael Moraes", 17);
+
+        
+        estudante.adicionarDisciplina("Matemática");
+        estudante.adicionarDisciplina("Física");
+        estudante.adicionarDisciplina("Química");
+
+        
+        estudante.exibirDisciplinas();
+    }
+}
